@@ -1,29 +1,56 @@
+import { songs } from "./data.js";
+
 //Exercise 1: Get the array of all Artists.
-function getAllArtists(array){
-    let result = '???'
+
+//const  getAllArtists = (songs) => songs.map(song=> song.artist);
+//console.log(getAllArtists(songs));
     //console.log("Exercise 1 ->", result);
-    return result;
-};
+
+
+    let getAllArtists = songs.map(song => song ['artist']);
+    console.log(getAllArtists);
+   // return result;
+
+
+
+
+    
+//const artists = songs.map(song => song.artist);
+
+//console.log(artists);
+
 
 //Exercise 2: Get the songs of a certain artist
 function getSongsFromArtist(array, artist){
-    //Write your code here
+    return array.filter(song => song.artist === artist);
 };
+
+const result = getSongsFromArtist(songs, "Aerosmith");
+console.log(result);
+
+
 
 //Exercise 3: Alphabetic order by title
-function orderAlphabetically(){
-    //Write your code here
+function orderAlphabetically(array){
+    return array.sort((a, b) => a.title.localeCompare(b.title));
 };
+console.log(orderAlphabetically(songs));
+
 
 //Exercise 4: Order by year, ascending
-function orderByYear(){
-    //Write your code here
+function orderByYear(array){
+    return array.sort((a, b) => a.year - b.year);
 };
+console.log(orderByYear(songs));
+
 
 //Exercise 5: Filter songs by genre
-function songsByGenre() {
-    //Write your code here
+function songsByGenre(array, genre){
+     return array.filter(song => song.genre === genre);
 };
+
+console.log(songsByGenre(songs, "Rock"));
+
 
 //Exercise 6: Modify the duration of songs to seconds
 function minutsToSeconds() {
